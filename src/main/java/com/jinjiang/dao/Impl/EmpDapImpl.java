@@ -117,8 +117,8 @@ public class EmpDapImpl implements IEmpDao {
             }
             if (empnoList.size() > 0) {
                 sqlStr.delete(sqlStr.length() - 1, sqlStr.length());
-                sqlStr = "DELETE FROM employee WHERE empno in (" + sqlStr + ")";
-                return conn.prepareStatement(sqlStr).executeUpdate()==empnoList.size();
+                String str = "DELETE FROM employee WHERE empno in (" + sqlStr.toString() + ")";
+                return conn.prepareStatement(str).executeUpdate()==empnoList.size();
             } else {
                 return false;
             }
